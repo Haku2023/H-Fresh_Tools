@@ -105,19 +105,12 @@ def main():
     video_frame = tk.Frame(right_frame, bg="white")
     video_frame.pack(expand=True, fill="both")
     video_frame.pack_propagate(False)
-    # video_frame.grid_rowconfigure(0, weight=1)
-    # video_frame.grid_rowconfigure(1, weight=2)
-    # video_frame.grid_rowconfigure(2, weight=1)
-    # video_frame.grid_columnconfigure(0, weight=1)
 
 
 
 
     window.mainloop()
-    """
-    main
-    show_result
-    """
+
 def select_folder():
     # Open a  folder selection dialog and get the selected folder path
     global selected_folder
@@ -164,6 +157,7 @@ def update_scale(event):
 def animation():
     global output_message
     # Get the user input of fps
+    global fps
     fps = input_entry.get() #the fps which means how many pictures in one second
     if not fps.isdigit() or int(fps) <= 0:
         output_message.config(text = "Please enter a valid fps")
@@ -214,7 +208,7 @@ def make_animation(filesname,movie_folder_path,info,fps):
     if not os.path.exists(movie_folder_path):
         os.makedirs(movie_folder_path)
     global movie_file_path
-    movie_file_path = movie_folder_path + info + '.mp4'
+    movie_file_path = movie_folder_path + info + f'_fps{fps}.mp4'
     out = cv2.VideoWriter(movie_file_path, cv2.VideoWriter_fourcc(*'mp4v'), fps, size)
     for i in range(len(img_array)):
         out.write(img_array[i])
