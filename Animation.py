@@ -105,19 +105,9 @@ def main():
     video_frame = tk.Frame(right_frame, bg="white")
     video_frame.pack(expand=True, fill="both")
     video_frame.pack_propagate(False)
-    # video_frame.grid_rowconfigure(0, weight=1)
-    # video_frame.grid_rowconfigure(1, weight=2)
-    # video_frame.grid_rowconfigure(2, weight=1)
-    # video_frame.grid_columnconfigure(0, weight=1)
-
-
-
 
     window.mainloop()
-    """
-    main
-    show_result
-    """
+
 def select_folder():
     # Open a  folder selection dialog and get the selected folder path
     global selected_folder
